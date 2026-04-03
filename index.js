@@ -16,7 +16,7 @@ const app = express();  // Creating an instance of the Express app
 
 
 // Use pg.Pool instead of pg.Client
-const pool = new pg.Pool({
+const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false }
 });
