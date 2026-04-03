@@ -152,5 +152,9 @@ app.post("/delete/:id", async (req, res) => {
   }
 });
 
+db.connect()
+  .then(() => console.log("Connected to Supabase"))
+  .catch(err => console.error("Database connection error", err.stack));
+
 // Start the server and listen on the specified port
 export default app;
