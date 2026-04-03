@@ -2,6 +2,8 @@
 import express from "express";  // Express framework for building the web server
 import bodyParser from "body-parser";  // Middleware to parse incoming request bodies
 import pg from "pg";
+import dotenv from "dotenv";
+dotenv.config();  // Load environment variables from a .env file
 
 const app = express();  // Creating an instance of the Express app
 const port = 4000;  // Defining the port number the server will listen on
