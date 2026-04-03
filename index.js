@@ -27,6 +27,7 @@ db.connect();
 // Middleware setup
 app.use(bodyParser.urlencoded({ extended: true }));  // Parse incoming form data as URL-encoded
 app.use(express.static(path.join(__dirname, 'public')));
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");  // Set the template engine to EJS for rendering views
 
 
