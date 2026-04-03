@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Specifies the language of the document as English -->
+<head>
+    <!-- The meta tags set the character encoding and viewport settings for responsiveness -->
+    <meta charset="UTF-8"> <!-- Defines the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures the page is responsive and adjusts to screen size -->
+    <title>Blog Home</title> <!-- Title of the webpage that will be displayed in the browser tab -->
+    
+    <!-- Linking the CSS file to style the page -->
+    <link rel="stylesheet" href="index.css"> <!-- External stylesheet that defines the styles for the page -->
+</head>
+<body>
+
+    <!-- Header section, contains the title and a link to create a new post -->
+    <header>
+        <h1>Welcome to My Blog</h1> <!-- Main heading of the page -->
+        <!-- Button that links to the form for creating a new post -->
+        <a href="/create" class="btn-new-post">Create New Post</a> <!-- Link that directs to the page for creating a new post -->
+    </header>
+
+    <!-- Main section where all the posts are displayed -->
+    <div class="posts">
+        <!-- Looping through the posts array to display each post -->
+        <% posts.forEach((post) => { %>
+            <!-- Each post is contained within this div -->
+            <div class="post">
+                <!-- Displaying the title of the post -->
+                <h2><%= post.title %></h2> <!-- Dynamic content: displays the title of each post -->
+                <!-- Displaying the content of the post -->
+                <p><%= post.content %></p> <!-- Dynamic content: displays the content of each post -->
+
+                <div class="post-details">
+                    <!-- Displaying the author and date -->
+                    <p><strong>Author:</strong> <%= post.author %></p> <!-- Dynamic content: displays the author of the post -->
+                    <p><strong>Date:</strong> <%= post.date %></p> <!-- Dynamic content: displays the date the post was created -->
+                    <p><strong>Post ID:</strong> <%= post.id %></p> <!-- Dynamic content: displays the unique post ID -->
+                </div>
+                
+                <div class="actions">
+                    <!-- Form for deleting a post, submitting it via POST method -->
+                    <!-- Delete Button (Inside your loop for each post) -->
+                    <form method="POST" action="/delete/<%= post.id %>"> <!-- Form to delete a post based on its ID -->
+                        
+                        <button type="submit" class="btn-delete">Delete</button> <!-- Button to submit the form and delete the post -->
+                    </form>
+  
+                    <!-- Form for editing a post, links to the edit page -->
+                    <!-- Button for editing the post -->
+                    <form action="/edit/<%= post.id %>" method="GET"> <!-- Form to edit a post based on its ID -->
+                        <button type="submit" class="btn-edit">Edit</button> <!-- Button to submit the form and edit the post -->
+                    </form>
+                </div>
+            </div>
+        <% }) %> <!-- End of the loop for rendering posts -->
+    </div>
+    
+    <!-- Footer section for copyright information -->
+    <footer>
+        <p>Copyright © <%= new Date().getFullYear() %></p> <!-- Dynamic content: displays the current year -->
+    </footer>
+</body>
+</html>

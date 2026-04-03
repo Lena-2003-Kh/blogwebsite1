@@ -1,0 +1,42 @@
+<!DOCTYPE html> <!-- Declares the document type and version of HTML -->
+<html lang="en"> <!-- Defines the language of the document as English -->
+<head>
+    <meta charset="UTF-8"> <!-- Specifies the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures the page is responsive on mobile devices -->
+    <title>Create New Post</title> <!-- The title of the page that appears in the browser tab -->
+    <link rel="stylesheet" href="index.css"> <!-- Links the external CSS stylesheet to style the HTML page -->
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Create a New Post</h1> <!-- Main heading for the page to indicate it's for creating a new post -->
+    </header>
+
+    <!-- Create Post Form Section -->
+    <div class="post-form"> <!-- Container for the post creation form -->
+        
+        <!-- Form Section -->
+        <form action="/create-post" method="POST"> <!-- Form sends data via POST request to the /create-post route -->
+            <label for="title">Post Title</label> <!-- Label for the title input field -->
+            <input type="text" id="title" name="title" required placeholder="Enter the title of your post" value="<%= title %>"> <!-- Input field for the post title with placeholder text, value set dynamically by EJS -->
+             
+            <label for="content">Post Content</label> <!-- Label for the content textarea -->
+            <textarea id="content" name="content" rows="5" required placeholder="Write your content here..."><%= content %></textarea> <!-- Textarea for the post content, set dynamically using EJS -->
+
+            <label>Author</label> <!-- Label for the author input field -->
+            <input type="text" id="author" name="author" required placeholder="Enter your name" value="<%= author %>"> <!-- Input field for the author's name, set dynamically by EJS -->
+
+            <!-- Button Container -->
+            <div class="btn-home-container"> <!-- Container for the "Back to Home" button -->
+                <button type="submit">Create Post</button> <!-- Submit button to send the form data to the server -->
+                <a href="/" class="btn-home">Back to Home</a> <!-- Link that redirects to the homepage (/) -->
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Copyright © <%= new Date().getFullYear() %></p> <!-- Footer showing the current year -->
+    </footer>
+</body>
+</html>

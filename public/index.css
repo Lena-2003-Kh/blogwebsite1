@@ -1,0 +1,272 @@
+* {
+    margin: 0; /* Removes any default margin from all elements */
+    padding: 0; /* Removes any default padding from all elements */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif; /* Sets the font family to Arial for readability */
+    background-color: #f4f4f4; /* Light background color for the page */
+    color: #333; /* Dark text color for better contrast and readability */
+    line-height: 1.6; /* Increases line height for better text readability */
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styling */
+header {
+    background-color: #2C3E50; /* Dark blue background for the header */
+    color: #fff; /* White text color for contrast */
+    text-align: center; /* Centers the header text */
+    padding: 20px 0; /* Adds padding to the top and bottom of the header */
+}
+
+footer {
+    text-align: center; /* Center the text */
+    background-color: #2C3E50; /* Set footer background color */
+    color: #fff; /* Set footer text color */
+    padding: 10px 0; /* Add padding to the footer */
+    margin-top: auto; /* Push footer to the bottom */
+}
+main {
+    flex: 1;
+}
+header h1 {
+    font-size: 2.5rem; /* Large font size for the heading */
+    margin-bottom: 10px; /* Adds space below the header text */
+}
+
+/* Button for creating a new post */
+.btn-new-post {
+    background-color: #F39C12; /* Orange color for the button */
+    color: #fff; /* White text color for the button */
+    text-decoration: none; /* Removes underlining from the button's link */
+    padding: 10px 20px; /* Adds padding inside the button */
+    border-radius: 5px; /* Rounds the corners of the button */
+    font-size: 1.1rem; /* Slightly larger text for the button */
+    transition: background-color 0.3s ease; /* Smooth background color transition when hovered */
+}
+
+.btn-new-post:hover {
+    background-color: #e67e22; /* Changes the background color to a darker orange when hovered */
+}
+
+/* Posts container styling */
+.posts {
+    max-width: 1200px; /* Restricts the maximum width of the posts container */
+    margin: 20px auto; /* Centers the container with 20px margin on top and bottom */
+    padding: 20px; /* Adds padding inside the container */
+}
+
+/* Individual post styling */
+.post {
+    background-color: #fff; /* White background for each post */
+    padding: 20px; /* Adds padding inside each post */
+    border-radius: 8px; /* Rounds the corners of the post */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Adds a soft shadow around the post */
+    margin-bottom: 20px; /* Adds space between posts */
+
+    max-height: 600px; /* Optional: Max height to prevent the post from growing too large */
+    overflow: auto; /* Adds scrollbars when content exceeds the post container */
+}
+
+.post h2 {
+    font-size: 2rem; /* Larger font size for post title */
+    margin-bottom: 10px; /* Adds space below the title */
+}
+
+.post p {
+    font-size: 1rem; /* Normal font size for the post content */
+    color: #555; /* Slightly lighter color for text content */
+    margin-bottom: 15px; /* Adds space below the content */
+
+    word-wrap: break-word; /* Ensures long words break and don't overflow */
+    overflow-wrap: break-word; /* Another property to handle overflow of long words */
+    max-width: 100%; /* Prevents it from exceeding the container width */
+}
+
+/* Buttons inside each post for delete action */
+/* Actions container to arrange buttons in a row */
+.actions {
+    display: flex; /* Use flexbox to arrange buttons horizontally */
+    gap: 10px; /* Add space between the buttons */
+    align-items: center; /* Vertically center the buttons */
+}
+
+/* Buttons inside each post for delete action */
+.btn-delete {
+    background-color: #E74C3C; /* Red color for the delete button */
+    color: #fff; /* White text color */
+    border: none; /* Removes any border */
+    padding: 8px 15px; /* Adds padding inside the button */
+    border-radius: 5px; /* Rounds the corners of the button */
+    cursor: pointer; /* Changes the cursor to a pointer when hovered */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.btn-delete:hover {
+    background-color: #c0392b; /* Changes the background color to a darker red when hovered */
+}
+
+/* Buttons inside each post for editing action */
+.btn-edit {
+    background-color: #3498DB; /* Blue color for the edit button */
+    color: #fff; /* White text color */
+    text-decoration: none; /* Removes underlining from the link */
+    padding: 8px 15px; /* Adds padding inside the button */
+    border-radius: 5px; /* Rounds the corners of the button */
+    cursor: pointer; /* Changes the cursor to a pointer when hovered */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.btn-edit:hover {
+    background-color: #2980B9; /* Changes the background color to a darker blue when hovered */
+}
+
+/* Styling for the cancel button in forms */
+.btn-cancel {
+    background-color: #95a5a6; /* Gray color for the cancel button */
+    color: #fff; /* White text color */
+    padding: 11px 18px; /* Adds padding inside the button */
+    border-radius: 5px; /* Rounds the corners of the button */
+    text-decoration: none; /* Removes any underlining */
+    font-size: 1rem; /* Sets the font size */
+    transition: background-color 0.3s ease; /* Smooth background color transition when hovered */
+}
+
+.btn-cancel:hover {
+    background-color: #7f8c8d; /* Darker gray color when hovered */
+}
+
+/* Create post form styling */
+.post-form {
+    background-color: #fff; /* White background for the form */
+    padding: 20px; /* Adds padding inside the form */
+    border-radius: 8px; /* Rounds the corners of the form */
+    max-width: 600px; /* Limits the width of the form */
+    margin: 20px auto; /* Centers the form with space above and below */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Adds a soft shadow around the form */
+}
+
+/* Labels inside the post form */
+.post-form label {
+    display: block; /* Makes label elements block level */
+    margin-bottom: 8px; /* Adds space below the label */
+    font-weight: bold; /* Makes label text bold */
+}
+
+/* Input and text area styling inside the form */
+.post-form input,
+.post-form textarea {
+    width: 100%; /* Makes the input and textarea take full width of the form */
+    padding: 10px; /* Adds padding inside the input and textarea */
+    border: 1px solid #ddd; /* Light border color */
+    border-radius: 5px; /* Rounds the corners */
+    margin-bottom: 15px; /* Adds space below input and textarea */
+}
+
+/* Submit button inside the post form */
+.post-form button {
+    background-color: #F39C12; /* Orange color for the button */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Adds padding inside the button */
+    border: none; /* Removes the border */
+    border-radius: 5px; /* Rounds the corners */
+    cursor: pointer; /* Changes the cursor to pointer */
+    font-size: 1rem; /* Sets the font size of the button */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.post-form button:hover {
+    background-color: #e67e22; /* Changes the background color when hovered */
+}
+
+/* Link back to home button */
+.btn-home {
+    display: inline-block; /* Makes the link a block-level button */
+    text-decoration: none; /* Removes underlining from the link */
+    background-color: #3498DB; /* Blue color for the button */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Adds padding inside the button */
+    border-radius: 5px; /* Rounds the corners of the button */
+    font-size: 1rem; /* Slightly larger font size */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.btn-home:hover {
+    background-color: #2980B9; /* Changes the background color when hovered */
+}
+
+/* Media Queries for Responsiveness */
+
+/* For screens between 319px and 480px (small devices like phones in portrait mode) */
+@media (min-width: 319px) and (max-width: 480px) {
+    /* Header font size */
+    header h1 {
+        font-size: 1.8rem; /* Reduces header size for small screens */
+    }
+
+    /* Posts container */
+    .posts {
+        margin: 10px;
+        padding: 10px; /* Reduces padding to save space on small screens */
+        overflow-y: auto; /* Enables vertical scrolling for posts */
+        max-height: 80vh; /* Restrict height to 80% of the viewport */
+    }
+
+    /* Post styling */
+    .post {
+        padding: 15px; /* Reduces padding in posts for small screens */
+        overflow: hidden; /* Prevents overflow issues */
+        max-height: 400px; /* Limit post height */
+        overflow-y: auto; /* Adds scrolling for large content inside the post */
+    }
+
+    /* Post form styling */
+    .post-form {
+        padding: 15px;
+        margin: 10px; /* Reduces margin around the form */
+    }
+
+    /* Form fields */
+    .post-form input,
+    .post-form textarea {
+        padding: 8px; /* Reduces padding inside form fields */
+    }
+
+    /* Button sizes */
+    .btn-home,
+    .btn-new-post,
+    .btn-delete,
+    .btn-edit {
+        font-size: 1rem;
+        padding: 8px 15px; /* Adjusts padding for buttons */
+    }
+}
+
+/* For screens between 481px and 1200px (tablets and smaller laptops) */
+@media (min-width: 481px) and (max-width: 1200px) {
+    /* Header font size */
+    header h1 {
+        font-size: 2.2rem; /* Slightly bigger header for medium screens */
+    }
+
+    /* Posts container */
+    .posts {
+        margin: 20px;
+        padding: 20px; /* Keeps padding consistent on medium screens */
+    }
+
+    /* Post styling */
+    .post {
+        padding: 20px;
+        max-height: 500px; /* Ensures posts don't become too tall */
+    }
+}

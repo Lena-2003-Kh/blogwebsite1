@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Defines the language of the document as English -->
+<head>
+    <meta charset="UTF-8"> <!-- Specifies the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures the page is responsive on mobile devices -->
+    <title>Edit Post</title> <!-- The title of the page that appears in the browser tab -->
+    <link rel="stylesheet" href="/index.css"> <!-- Links the external CSS stylesheet to style the HTML page -->
+</head>
+<body>
+    <header>
+        <h1>Edit Post</h1> <!-- Main heading for the page to indicate it's for editing a post -->
+    </header>
+   
+    <div class="post-form"> <!-- Container for the post editing form -->
+        <!-- Use POST method but simulate PATCH with _method=PATCH to update the post -->
+        <form action="/edit/<%= post.id %>" method="POST"> <!-- Form sends data via POST method to the server with a simulated PATCH method -->
+            
+            <label for="title">Post Title</label> <!-- Label for the post title input field -->
+            <input type="text" id="title" name="title" required value="<%= post.title %>"> <!-- Input field for the title, prefilled with the current post's title -->
+
+            <label for="content">Post Content</label> <!-- Label for the post content textarea -->
+            <textarea id="content" name="content" rows="5" required><%= post.content %></textarea> <!-- Textarea for the post content, prefilled with the current post's content -->
+
+            <label for="author">Author</label> <!-- Label for the author input field -->
+            <input type="text" id="author" name="author" required value="<%= post.author %>"> <!-- Input field for the author, prefilled with the current post's author -->
+
+            <button type="submit">Update Post</button> <!-- Button to submit the form and update the post -->
+            <a href="/" class="btn-cancel">Cancel</a> <!-- Link to go back to the homepage without making changes -->
+        </form>
+    </div>
+    
+    <footer>
+        <p>Copyright © <%= new Date().getFullYear() %></p> <!-- Footer displaying the current year -->
+    </footer>
+</body>
+</html>
