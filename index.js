@@ -38,9 +38,10 @@ app.get("/", async (req, res) => {
   try {
     const result = await db.query("SELECT * FROM posts");
 
+    // Keep your date logic here
     result.rows.forEach(post => {
       const localDate = new Date(post.dates).toLocaleString('en-US', {
-        timeZone: 'Asia/Amman', // Specify Jordan's timezone
+        timeZone: 'Asia/Amman', 
         year: 'numeric',
         month: '2-digit',
         day: '2-digit',
@@ -50,13 +51,13 @@ app.get("/", async (req, res) => {
       });
       
       post.date = localDate; 
-   });
-  
-  
+    });
 
-    res.render("index", { posts: result.rows }); // Render the index view and pass the posts data
+    res.render("index", { posts: result.rows });
   } catch (err) {
-    res.status(500).send("Error retrieving posts");
+    // This is the important part: it sends the EXACT error to your browser
+    // If the table 'posts' is missing, it will tell you here!
+    res.status(500).send("Database Error: " + err.message);
   }
 });
 
@@ -154,9 +155,7 @@ app.post("/delete/:id", async (req, res) => {
   }
 });
 
-db.connect()
-  .then(() => console.log("Connected to Supabase"))
-  .catch(err => console.error("Database connection error", err.stack));
+
 
 // Start the server and listen on the specified port
 export default app;
