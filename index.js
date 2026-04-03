@@ -15,13 +15,15 @@ dotenv.config();  // Load environment variables from a .env file
 const app = express();  // Creating an instance of the Express app
 
 
-const db = new pg.Client({
+// Use pg.Pool instead of pg.Client
+const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
+  ssl: { rejectUnauthorized: false }
 });
-db.connect();
+
+// Remove db.connect(); entirely. 
+// The pool handles connections automatically when you call pool.query().
+
 
 
 // Middleware setup
