@@ -6,13 +6,13 @@ import dotenv from "dotenv";
 dotenv.config();  // Load environment variables from a .env file
 
 const app = express();  // Creating an instance of the Express app
-const port = 4000;  // Defining the port number the server will listen on
+
 
 const db = new pg.Client({
   connectionString: process.env.DATABASE_URL,
-  ssl: process.env.DATABASE_URL && process.env.DATABASE_URL.includes("vercel.com")
-      ? { rejectUnauthorized: false }
-      : false  // Disable SSL if not required (this is for hosting on platforms like Render)
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 db.connect();
 
@@ -145,6 +145,4 @@ app.post("/delete/:id", async (req, res) => {
 });
 
 // Start the server and listen on the specified port
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}.`);  // Log message when the server starts
-});
+export default app;
