@@ -3,6 +3,13 @@ import express from "express";  // Express framework for building the web server
 import bodyParser from "body-parser";  // Middleware to parse incoming request bodies
 import pg from "pg";
 import dotenv from "dotenv";
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+
 dotenv.config();  // Load environment variables from a .env file
 
 const app = express();  // Creating an instance of the Express app
@@ -19,7 +26,7 @@ db.connect();
 
 // Middleware setup
 app.use(bodyParser.urlencoded({ extended: true }));  // Parse incoming form data as URL-encoded
-app.use(express.static("public"));  // Serve static files (e.g., CSS, images, JavaScript)
+app.use(express.static(path.join(__dirname, 'public')));
 app.set("view engine", "ejs");  // Set the template engine to EJS for rendering views
 
 
