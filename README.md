@@ -36,8 +36,8 @@ A clean, responsive, and fully functional full-stack blogging web application. T
 │   ├── index.ejs          # Homepage displaying the feed of all posts
 │   ├── create.ejs         # Interface for drafting a new post
 │   ├── edit.ejs           # Interface for modifying existing posts
-│   └── delete.ejs         # Confirmation step before item deletion
-├── app.js                 # Express server configuration & API routing
+│          
+├── index.js                 # Express server configuration & API routing
 ├── .env.example           # Reference file for required environment variables
 └── README.md              # Project documentation
 
